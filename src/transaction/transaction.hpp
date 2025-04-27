@@ -7,17 +7,18 @@ namespace RNAB
 {
     class  Transaction
     {
-        static int transaction_id;
-        public:
-        Transaction(int p_value, std::string p_account, std::string p_budget)
-        :m_value(p_value), m_account(p_account), m_budget(p_budget){ m_transaction_id = ++transaction_id; }
-
+        //static int transaction_id;
 
         private:
         int m_value; // in cents;
         std::string m_account;
         std::string m_budget;
         int m_transaction_id;
+
+        public:
+        Transaction(int p_value, std::string p_account, std::string p_budget)
+        :m_value(p_value), m_account(p_account), m_budget(p_budget){} // m_transaction_id = ++transaction_id; }
+
 
         public:
         int get_value() const{ return m_value; }
@@ -29,7 +30,7 @@ namespace RNAB
         std::string get_budget() const { return m_budget; }
         void set_budget(std::string p_new_budget) { m_budget = p_new_budget; }
 
-        int get_id() { return m_transaction_id; }
+        //int get_id() { return m_transaction_id; }
 
 
     };
