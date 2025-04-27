@@ -17,6 +17,7 @@ namespace RNAB
         virtual bool transaction_belongs(TransactionPtr p_transaction){ return true; }
         void add_transaction_if_belongs(TransactionPtr p_transaction);
         virtual void text_representation_of_self() const{}
+        std::vector< std::string > get_text_representations() const;
 
         private:
         std::vector<TransactionPtr> m_transactions;

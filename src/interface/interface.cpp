@@ -22,6 +22,10 @@ namespace RNAB
         while(m_stay_alive)
             act();
     }
+    void Interface::dump_data() const
+    {
+        m_instance.dump_data();
+    }
 
     void Interface::greet() const
     {
@@ -49,6 +53,7 @@ namespace RNAB
     {
         m_stay_alive = false;
         std::cout << QUIT_GOODBYE;
+        dump_data();
     }
 
     void Interface::add_transaction()
@@ -56,7 +61,7 @@ namespace RNAB
         std::cout << ADD_TRANSACTION_PHRASE;
         int amount;
         std::string account, budget;
-        
+
         std::cout << ADD_TRANSACTION_AMOUNT;
         std::cin >> amount;
 

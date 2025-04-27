@@ -18,10 +18,11 @@ namespace RNAB
         void add_transaction();
         void add_account();
         void add_budget();
-        
+
         void run();
         void quit();
         void act();
+        void dump_data() const;
 
         Instance m_instance;
         bool m_stay_alive;

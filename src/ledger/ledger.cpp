@@ -29,6 +29,14 @@ namespace RNAB
         m_transactions = new_transactions;
     }
 
+    std::vector< std::string > Ledger::get_text_representations() const
+    {
+        std::vector<std::string> vectors_to_return(m_transactions.size());
+        std::transform(m_transactions.begin(), m_transactions.end(),
+            vectors_to_return.begin(), [](TransactionPtr x){ return x->get_csv_row();} );
+        return vectors_to_return;
+    }
+
     void AccountLedger::text_representation_of_self() const
     {
         double sum  = get_sum_of_transactions();

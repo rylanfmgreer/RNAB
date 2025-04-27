@@ -30,6 +30,7 @@ namespace RNAB
         std::string get_budget() const { return m_budget; }
         void set_budget(std::string p_new_budget) { m_budget = p_new_budget; }
 
+        std::string get_csv_row() const;
         //int get_id() { return m_transaction_id; }
 
 

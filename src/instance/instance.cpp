@@ -1,4 +1,5 @@
 #include "instance.hpp"
+#include <fstream>
 
 namespace RNAB
 {
@@ -14,7 +15,14 @@ namespace RNAB
          m_budget_ledgers[i].add_transaction_if_belongs(this_transaction_ptr);      
     }
 
-    void Instance::dump_data() const {}; // not implemented yet
+    void Instance::dump_data() const
+    {
+        std::ofstream output_csv("MyCSV.csv");
+        output_csv << "amount,account,budget\n";
+        std::vector<std::string> rows = m_master_ledger.get_text_representations();
+        for(int i(0); i < rows.size(); ++i) output_csv << rows[i];
+        output_csv.close();
+    }
 
     void Instance::print_accounts() const
     {

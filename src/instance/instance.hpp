@@ -13,12 +13,12 @@ namespace RNAB
         void add_transaction(Transaction& p_transaction);
         void print_accounts() const;
         void print_budgets() const;
+        void dump_data() const;
 
         private:
         Ledger m_master_ledger;
         std::vector<AccountLedger> m_account_ledgers;
         std::vector<BudgetLedger> m_budget_ledgers;
-        void dump_data() const;
 
 
     };
