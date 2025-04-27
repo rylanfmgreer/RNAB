@@ -1,2 +1,2 @@
 # RNAB
-trying to make a console based version of YNAB
+very bare bones budgeting app inspired by ynab
