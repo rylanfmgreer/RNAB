@@ -13,6 +13,7 @@ namespace RNAB
     Interface::Interface()
     :m_stay_alive(true)
     {
+        std::cout << RNAB_INTRO;
         m_instance.read_data("MyCSV.csv");
         run();
     }
