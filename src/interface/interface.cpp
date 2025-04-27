@@ -13,7 +13,7 @@ namespace RNAB
     Interface::Interface()
     :m_stay_alive(true)
     {
-        //m_instance.read_data("MyCSV.csv");
+        m_instance.read_data("MyCSV.csv");
         run();
     }
 

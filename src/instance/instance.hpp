@@ -29,8 +29,6 @@ namespace RNAB
 
 
     };
-    // from stackoverflow, for csv parsiiing
-    std::vector<std::string> getNextLineAndSplitIntoTokens(std::istream& str);
 } // namespace RNAB
 
 

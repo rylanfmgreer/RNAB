@@ -9,30 +9,6 @@
 namespace RNAB
 {
 
-
-    std::vector<std::string> getNextLineAndSplitIntoTokens(std::istream& str)
-    {
-        std::vector<std::string> result;
-        std::string line;
-        std::getline(str,line);
-
-        std::stringstream lineStream(line);
-        std::string cell;
-
-        while(std::getline(lineStream,cell, ','))
-        {
-            result.push_back(cell);
-        }
-        // This checks for a trailing comma with no data after it.
-        if (!lineStream && cell.empty())
-        {
-            // If there was a trailing comma then add an empty element.
-            result.push_back("");
-        }
-        return result;
-    }
-    
-
     void Instance::dump_data() const
     {
         std::ofstream output_csv("MyCSV.csv");
@@ -48,13 +24,19 @@ namespace RNAB
         myfile.open(p_filename);
 
         int c = 0;
-        for(CSVIterator loop(myfile); loop != CSVIterator(); ++loop)
+        CSVIterator loop(myfile);
+        loop++;
+        for(; loop != CSVIterator(); ++loop)
         {
             
             auto x = (*loop)[0];
-            int amount = 10;
-            std::string account = "1";
-            std::string budget = "2";
+            std::string_view _amount = (*loop)[0];
+            std::string_view _account = (*loop)[1];
+            std::string_view _budget = (*loop)[2];
+
+            int amount = std::stoi( std::string(_amount));
+            std::string account = std::string(_account);
+            std::string budget = std::string(_budget);
 
             TransactionPtr this_transaction(new Transaction(amount, account, budget));
             add_budget_if_not_exists(budget);
