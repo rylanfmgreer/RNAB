@@ -37,18 +37,23 @@ namespace RNAB
         return vectors_to_return;
     }
 
-    void AccountLedger::text_representation_of_self() const
+
+    void Ledger::text_representation_of_self() const
     {
         double sum  = get_sum_of_transactions();
-        std::cout << m_account << ": " << sum / 100.0 << '\n';
-
-    }
-
-    void BudgetLedger::text_representation_of_self() const
-    {
-        double sum  = get_sum_of_transactions();
-        std::cout << m_budget << ": " << sum / 100.0 << '\n';
-
-    }
+        std::cout << get_name() << ": " << sum / 100.0 << '\n';
     
+    }
+
+    std::string BudgetLedger::get_name() const
+    {
+        return m_budget;
+    }
+
+    std::string AccountLedger::get_name() const
+    {
+        return m_account;
+    }   
+
+
 } // namespace RNAB

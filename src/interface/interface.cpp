@@ -13,6 +13,7 @@ namespace RNAB
     Interface::Interface()
     :m_stay_alive(true)
     {
+        //m_instance.read_data("MyCSV.csv");
         run();
     }
 
@@ -45,8 +46,18 @@ namespace RNAB
     void Interface::act()
     {
         std::cout << ACT_QUESTION;
-        add_transaction();
-        quit();
+        std::cout << OPTIONS;
+        int option;
+        std::cin >> option;
+        if(option == 1)
+            add_transaction();
+        else if(option == 2)
+            view_accounts();
+        else if(option == 3)
+            view_budgets();
+        else if(option == 4)
+            quit();
+        else quit();
     }
 
     void Interface::quit()
