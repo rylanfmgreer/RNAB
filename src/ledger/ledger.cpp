@@ -1,6 +1,7 @@
 #include "ledger.hpp"
 #include <algorithm>
 #include <numeric>
+#include <iostream>
 
 namespace RNAB
 {
@@ -11,7 +12,10 @@ namespace RNAB
 
     int Ledger::get_sum_of_transactions() const
     {
-        return std::accumulate(m_transactions.begin(), m_transactions.end(), 0, [](TransactionPtr x){ return x->get_value();});
+        int this_sum(0);
+        for(int i(0); i < m_transactions.size(); ++i)
+            this_sum += m_transactions[i]->get_value();
+        return this_sum;
     }
 
     void Ledger::filter_transactions()
@@ -25,5 +29,18 @@ namespace RNAB
         m_transactions = new_transactions;
     }
 
+    void AccountLedger::text_representation_of_self() const
+    {
+        double sum  = get_sum_of_transactions();
+        std::cout << m_account << ": " << sum / 100.0 << '\n';
+
+    }
+
+    void BudgetLedger::text_representation_of_self() const
+    {
+        double sum  = get_sum_of_transactions();
+        std::cout << m_budget << ": " << sum / 100.0 << '\n';
+
+    }
     
 } // namespace RNAB

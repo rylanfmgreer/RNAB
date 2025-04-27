@@ -1,4 +1,4 @@
-#pragma once;
+#pragma once
 #ifndef TRANSACTION_RNAB
 #define TRANSACTION_RNAB
 #include <string>
