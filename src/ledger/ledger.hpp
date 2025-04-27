@@ -41,7 +41,7 @@ namespace RNAB
     {
         public:
         BudgetLedger(std::string p_budget) : m_budget(p_budget){}
-        virtual bool transaction_belongs (TransactionPtr p_transaction){ return p_transaction->get_account() == m_budget; }
+        virtual bool transaction_belongs (TransactionPtr p_transaction){ return p_transaction->get_budget() == m_budget; }
         virtual std::string get_name() const;
 
         private:

@@ -1,5 +1,7 @@
+#include "src/interface/interface.hpp"
 
+using namespace RNAB;
 int main()
 {
-    return 0;
+    Interface this_interface;
 }

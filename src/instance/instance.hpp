@@ -22,8 +22,8 @@ namespace RNAB
         Ledger m_master_ledger;
         std::vector<AccountLedger> m_account_ledgers;
         std::vector<BudgetLedger> m_budget_ledgers;
-        void add_account_if_not_exists(const std::string& m_account_name);
-        void add_budget_if_not_exists(const std::string& m_budget_name);
+        void add_account_if_not_exists(const std::string m_account_name);
+        void add_budget_if_not_exists(const std::string m_budget_name);
         std::vector<std::string> get_budget_names() const;
         std::vector<std::string> get_account_names() const;
 

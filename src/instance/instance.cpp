@@ -3,7 +3,7 @@
 #include <algorithm>
 namespace RNAB
 {
-    void Instance::add_account_if_not_exists(const std::string& p_account_name)
+    void Instance::add_account_if_not_exists(const std::string p_account_name)
     {
         std::vector<std::string> accounts = get_account_names();
         auto loc = std::find(accounts.begin(), accounts.end(), p_account_name);
@@ -14,7 +14,7 @@ namespace RNAB
         }
     }
 
-    void Instance::add_budget_if_not_exists(const std::string& p_budget_name)
+    void Instance::add_budget_if_not_exists(const std::string p_budget_name)
     {
         std::vector<std::string> budgets = get_budget_names();
         auto loc = std::find(budgets.begin(), budgets.end(), p_budget_name);

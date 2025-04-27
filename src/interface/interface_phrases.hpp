@@ -12,7 +12,7 @@ namespace RNAB_Phrases
     const std::string ADD_TRANSACTION_AMOUNT =  "How much? \n";
     const std::string ADD_TRANSACTION_BUDGET =  "What budget? \n";
     const std::string ADD_TRANSACTION_ACCOUNT =  "What account? \n";
-    const std::string OPTIONS = "1 Add a transaction \n2. Check accounts \n3. Check budgets. \n4.Quit\n\n";
+    const std::string OPTIONS = "  (1) Add a transaction \n  (2) Check accounts \n  (3) Check budgets. \n  (4) Quit\n\n";
 
 
 }
